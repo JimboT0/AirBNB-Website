@@ -3,6 +3,7 @@ import { Image, PortableTextBlock } from "sanity"
 interface InventoryRoom {
   id: string
   name: string
+  email: string
   image: string
   images: string[]
   categories: string[]

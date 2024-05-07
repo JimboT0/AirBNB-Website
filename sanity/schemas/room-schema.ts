@@ -20,6 +20,11 @@ export const room = defineType({
             }
         },
         {
+            name: "email",
+            title: "Email",
+            type: "string",
+        },
+        {
             name: "images",
             title: "Images",
             type: "array",

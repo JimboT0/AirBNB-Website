@@ -13,12 +13,6 @@ interface ContactFormEmailProps {
   message: string
 }
 
-interface Props {
-  params: {
-    slug: string
-  }
-}
-
 const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
   name,
   surname,
@@ -32,7 +26,7 @@ const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
 
   return(
   <div>
-    <h4>Booking form submission</h4>
+    <h4>Enquiry Form Submission</h4>
     <p>
       <h2>Enquiry from <strong>{name} {surname}</strong></h2> 
     </p>
@@ -47,7 +41,6 @@ const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
     <p>{date}</p>
     <h4>Message:</h4>
     <p>{message}</p>
-    <h1>{product.name}</h1>
 
   </div>
 )

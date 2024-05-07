@@ -9,13 +9,12 @@ import { Input } from "@/components/ui/input"
 
 import { ThemeToggle } from "@/components/theme-toggle"
 import NavBar from "@/components/navbar"
-import { SanityRoom } from "@/config/room-inventory"
 
-interface Props {
-  room: SanityRoom
-}
 
-export function SiteHeader({ room }: Props) {
+
+
+
+export function SiteHeader() {
   const pathname = usePathname()
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -42,7 +41,7 @@ export function SiteHeader({ room }: Props) {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between space-x-4 md:px-6 sm:space-x-0">
         <div className="order-2 md:order-1">
           <div className="pl-5 items-center">
-            <p>fuck</p>
+            <p>ROOM</p>
           </div>
         </div>
         {pathname.startsWith('/shop') || pathname.startsWith('/blog') ? (
