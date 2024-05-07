@@ -1,3 +1,8 @@
+import { client } from "@/sanity/lib/client"
+import { product } from "@/sanity/schemas/product-schema"
+import { groq } from "next-sanity"
+import { Product } from "use-shopping-cart/core"
+
 interface ContactFormEmailProps {
   name: string
   surname: string
@@ -8,6 +13,12 @@ interface ContactFormEmailProps {
   message: string
 }
 
+interface Props {
+  params: {
+    slug: string
+  }
+}
+
 const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
   name,
   surname,
@@ -15,11 +26,11 @@ const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
   phone,
   time,
   date,
-  message
-
+  message,
   
+}, ) => {
 
-}) => (
+  return(
   <div>
     <h4>Booking form submission</h4>
     <p>
@@ -36,8 +47,10 @@ const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
     <p>{date}</p>
     <h4>Message:</h4>
     <p>{message}</p>
+    <h1>{product.name}</h1>
 
   </div>
 )
+}
 
 export default ContactFormEmail

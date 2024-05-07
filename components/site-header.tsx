@@ -6,11 +6,16 @@ import { Edit, ShoppingBag } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { MainNav } from "@/components/main-nav"
+
 import { ThemeToggle } from "@/components/theme-toggle"
 import NavBar from "@/components/navbar"
+import { SanityRoom } from "@/config/room-inventory"
 
-export function SiteHeader() {
+interface Props {
+  room: SanityRoom
+}
+
+export function SiteHeader({ room }: Props) {
   const pathname = usePathname()
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -36,7 +41,9 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40  border-b bg-background">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between space-x-4 md:px-6 sm:space-x-0">
         <div className="order-2 md:order-1">
-          <MainNav />
+          <div className="pl-5 items-center">
+            <p>fuck</p>
+          </div>
         </div>
         {pathname.startsWith('/shop') || pathname.startsWith('/blog') ? (
           <div className="order-1 md:order-2">

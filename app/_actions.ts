@@ -5,6 +5,8 @@ import { Resend } from 'resend'
 import { ContactFormSchema, FormDataSchema } from '@/lib/schema'
 import ContactFormEmail from '@/emails/contact-form-email'
 
+
+
 type Inputs = z.infer<typeof FormDataSchema>
 
 export async function addEntry(data: Inputs) {
@@ -30,10 +32,10 @@ export async function sendEmail(data: ContactFormInputs) {
         try {
             const data = await resend.emails.send({
                 from: 'onboarding@resend.dev',
-                to: ['jimmyjazzz@icloud.com', 'james@origintime.co.za'],
+                to: [ 'james@origintime.co.za'],
                 subject: 'Booking form submission',
                 text: `Name: ${name}\nSurname: ${surname}\nEmail: ${email}\nPhone: ${phone}\nTime: ${time}\nDate: ${date}\nMessage: ${message}`,
-                react: ContactFormEmail({ name, surname, email, phone, time, date, message })
+                react: ContactFormEmail({ name, surname, email, phone, time, date, message})
             })
             return { success: true, data }
         } catch (error) {
