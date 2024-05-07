@@ -48,7 +48,6 @@ export default async function Page({ searchParams }: Props) {
     content,
     "slug": slug.current
     }`)
-  // await seedSanityData() this seeds data from seedSanityData
 
   return (
     <div>
@@ -59,7 +58,6 @@ export default async function Page({ searchParams }: Props) {
             <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
               {products.length} result{products.length === 1 ? "" : "s"}
             </h1>
-            {/* Product Sort */}
             <ProductSort />
           </div>
 
@@ -69,10 +67,8 @@ export default async function Page({ searchParams }: Props) {
             </h2>
             <div className={cn("grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4", products.length > 0 ? "lg:grid-cols-4" : "lg:grid-cols-[1fr_3fr]")}>
               <div className="hidden lg:block">
-                {/* Product filters */}
                 <ProductFilters />
                 </div>
-              {/* Product grid */}
               <ProductGrid products={products} />
             </div>
           </section>
