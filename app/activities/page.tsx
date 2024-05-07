@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils"
 import { ProductFilters } from "@/components/product-filters"
 import { ProductGrid } from "@/components/product-grid"
 import { ProductSort } from "@/components/product-sort"
-// import { seedSanityData } from "@/lib/seed"
 
 interface Props {
   searchParams: {
@@ -21,8 +20,6 @@ interface Props {
 }
 
 export default async function Page({ searchParams }: Props) {
-
-  // await seedSanityData()
 
   const { date = 'desc', price, color, category, size, search } = searchParams
   const priceOrder = price ? `| order(price ${price})` : ""
