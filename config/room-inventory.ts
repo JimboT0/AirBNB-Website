@@ -6,11 +6,10 @@ interface InventoryRoom {
   email: string
   image: string
   images: string[]
-  categories: string[]
-  sizes: string[]
-  colors: string[]
-  price: number
-  currency: string
+  button1: string,
+  button1link: string,
+  button2: string,
+  button2link: string,
   content: PortableTextBlock[]
   sku: string
 }
@@ -23,6 +22,6 @@ export interface SanityRoom extends Omit<InventoryRoom, "images"> {
 }
 
 export const inventory: InventoryRoom[] = [
- 
-  
+
+
 ]

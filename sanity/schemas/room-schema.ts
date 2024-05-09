@@ -31,23 +31,26 @@ export const room = defineType({
             of: [{type: 'image'}]
         },
         {
-            name: "categories",
-            title: "Categories",
-            type: "array",
-            of: [{type: 'string'}]
+            name: "button1",
+            title: "Button1",
+            type: "string",
         },
         {
-            name: "sizes",
-            title: "Sizes",
-            type: "array",
-            of: [{type: 'string'}]
+            name: "button1link",
+            title: "Button1link",
+            type: "string",
         },
         {
-            name: "colors",
-            title: "Colors",
-            type: "array",
-            of: [{type: 'string'}]
+            name: "button2",
+            title: "Button2",
+            type: "string",
         },
+        {
+            name: "button2link",
+            title: "Button2link",
+            type: "string",
+        },
+
         {
             name: "content",
             title: "Content",

@@ -3,7 +3,6 @@ import { groq } from "next-sanity"
 
 import { SanityRoom} from "@/config/room-inventory"
 import { RoomGallery } from "@/components/room-gallery"
-import { ProductInfo } from "@/components/product-info"
 import Booking from "@/components/booking"
 import Feedback from "@/components/feedback"
 
@@ -21,15 +20,12 @@ export default async function Page({ params }: Props) {
     name,
     sku,
     images,
-    price,
-    currency,
+    button1,
+    button1link,
+    button2,
+    button2link,
     content,
-    sizes,
-    categories,
-    colors,
     "slug": slug.current
-    
-
   }`
   )
   console.log(room)
