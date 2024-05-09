@@ -41,7 +41,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between space-x-4 md:px-6 sm:space-x-0">
         <div className="order-2 md:order-1">
           <div className="pl-5 items-center">
-            <p>ROOM</p>
+            <p>Rockefeller</p>
           </div>
         </div>
         {pathname.startsWith('/shop') || pathname.startsWith('/blog') ? (
