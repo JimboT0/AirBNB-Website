@@ -7,11 +7,7 @@ export default function hero() {
     return (
 
         <section className="w-full py-4 md:py-6 lg:py-12">
-<<<<<<< HEAD
             {/* <div className="container px-4 md:px-6">
-=======
-            <div className="container px-4 md:px-6">
->>>>>>> main
                 <div className="grid gap-6 lg:grid-cols-[1fr_550px] lg:gap-12 xl:grid-cols-[1fr_650px]">
                     <img
                         alt="Airbnb"
@@ -54,11 +50,7 @@ export default function hero() {
 
             </div>
 
-<<<<<<< HEAD
  */}
-=======
-
->>>>>>> main
 
         </section>
 
