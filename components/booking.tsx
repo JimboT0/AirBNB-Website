@@ -42,7 +42,7 @@ export default function BookingForm() {
     <div className="flex items-center justify-center h-full w-full p-3 py-2 mb-10 ">
       <div className="bg-gray-100 dark:bg-gray-800 p-8 max-w-md w-full rounded-lg">
         <div className="text-center space-y-2">
-          <h2 className="text-2xl font-bold p-2">Make a booking</h2>
+          <h2 className="text-2xl font-bold p-2">Make a booking </h2>
           <p className="text-gray-500 dark:text-gray-400 pb-10">Fill out the form below to schedule your appointment.</p>
         </div>
 
