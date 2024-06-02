@@ -18,17 +18,26 @@ export default function BookingForm() {
 
   useEffect(() => {
     const storedLandingPageURL = localStorage.getItem('landingPageURL');
+    console.log(`Stored Landing Page URL: ${storedLandingPageURL}`)
     setLandingPageURL(storedLandingPageURL || ''); // Set landingPageURL state variable
+    console.log(`Updated Landing Page URL: ${landingPageURL}`)
   }, []);
+
+  console.log(`${landingPageURL} is being stored here!`);
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting }
+    formState: { errors, isSubmitting },
+    setValue
   } = useForm<ContactFormInputs>({
     resolver: zodResolver(ContactFormSchema)
   })
+
+  useEffect(() => {
+    setValue('landingPageURL', landingPageURL); // Set the landingPageURL value in the form
+  }, [landingPageURL, setValue]);
 
   const processForm: SubmitHandler<ContactFormInputs> = async data => {
     const result = await sendEmail(data)
