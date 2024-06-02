@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 
 import Link from "next/link"
+<<<<<<< HEAD
+import RedirectButton from "./redirectButton";
 
 
 function Nav() {
+
+    
+=======
+
+
+function Nav() {
+>>>>>>> main
     return (
         <div >
             <nav>
@@ -14,12 +23,21 @@ function Nav() {
 
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
+<<<<<<< HEAD
+                                    {/* <a
+=======
                                     <a
+>>>>>>> main
                                         href="/"
                                         className=" hover:bg-gray-700 dark:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
                                     >
                                         Home
+<<<<<<< HEAD
+                                    </a> */}
+                                    <RedirectButton />
+=======
                                     </a>
+>>>>>>> main
 
 
                                     <a

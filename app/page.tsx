@@ -17,7 +17,10 @@ export default async function Page() {
 
   return (
     <>
+<<<<<<< HEAD
+=======
     NEW PAGE!!!!!!
+>>>>>>> main
     <Hero />
     <Feedback />
 

@@ -33,7 +33,11 @@ export default async function Page({ params }: Props) {
 
   }`
   )
+<<<<<<< HEAD
+  // console.log(post)
+=======
   console.log(post)
+>>>>>>> main
 
   return (
     <main className="mx-auto max-w-5xl sm:px-6 sm:pt-16 lg:px-8">

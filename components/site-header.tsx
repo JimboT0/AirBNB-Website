@@ -40,8 +40,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40  border-b bg-background">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between space-x-4 md:px-6 sm:space-x-0">
         <div className="order-2 md:order-1">
+<<<<<<< HEAD
+          <div className="pl-5 items-center text-sm">
+            {/* <p>QFlow</p> */}
+=======
           <div className="pl-5 items-center">
             <p>Rockefeller</p>
+>>>>>>> main
           </div>
         </div>
         {pathname.startsWith('/shop') || pathname.startsWith('/blog') ? (

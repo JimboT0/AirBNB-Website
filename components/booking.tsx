@@ -4,27 +4,64 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+<<<<<<< HEAD
+import CaptureLandingPageURL from '@/components/captureLandingPageURL';
+=======
+>>>>>>> main
 
 import { ContactFormSchema } from '@/lib/schema'
 import { sendEmail } from '@/app/_actions'
 import { toast } from 'sonner'
+<<<<<<< HEAD
+import { useEffect, useState } from 'react';
+=======
+>>>>>>> main
 
 export type ContactFormInputs = z.infer<typeof ContactFormSchema>
 
 export default function BookingForm() {
+<<<<<<< HEAD
+  const [landingPageURL, setLandingPageURL] = useState(''); // Declare landingPageURL state variable
+
+  useEffect(() => {
+    const storedLandingPageURL = localStorage.getItem('landingPageURL');
+    console.log(`Stored Landing Page URL: ${storedLandingPageURL}`)
+    setLandingPageURL(storedLandingPageURL || ''); // Set landingPageURL state variable
+    console.log(`Updated Landing Page URL: ${landingPageURL}`)
+  }, []);
+
+  console.log(`${landingPageURL} is being stored here!`);
+=======
+>>>>>>> main
 
   const {
     register,
     handleSubmit,
     reset,
+<<<<<<< HEAD
+    formState: { errors, isSubmitting },
+    setValue
+=======
     formState: { errors, isSubmitting }
+>>>>>>> main
   } = useForm<ContactFormInputs>({
     resolver: zodResolver(ContactFormSchema)
   })
 
+<<<<<<< HEAD
+  useEffect(() => {
+    setValue('landingPageURL', landingPageURL); // Set the landingPageURL value in the form
+  }, [landingPageURL, setValue]);
+
   const processForm: SubmitHandler<ContactFormInputs> = async data => {
     const result = await sendEmail(data)
 
+
+=======
+  const processForm: SubmitHandler<ContactFormInputs> = async data => {
+    const result = await sendEmail(data)
+
+>>>>>>> main
     if (result?.success) {
       console.log({ data: result.data })
       toast.success('Email sent!')
@@ -42,7 +79,11 @@ export default function BookingForm() {
     <div className="flex items-center justify-center h-full w-full p-3 py-2 mb-10 ">
       <div className="bg-gray-100 dark:bg-gray-800 p-8 max-w-md w-full rounded-lg">
         <div className="text-center space-y-2">
+<<<<<<< HEAD
+          <h2 className="text-2xl font-bold p-2">Make a booking</h2>
+=======
           <h2 className="text-2xl font-bold p-2">Make a booking </h2>
+>>>>>>> main
           <p className="text-gray-500 dark:text-gray-400 pb-10">Fill out the form below to schedule your appointment.</p>
         </div>
 
@@ -107,6 +148,11 @@ export default function BookingForm() {
             )}
           </div>
 
+<<<<<<< HEAD
+          <input type="hidden" {...register('landingPageURL', { value: landingPageURL })} />
+
+=======
+>>>>>>> main
           <div className="p-3">
             <button className="w-full border rounded-lg bg-orange-400 p-2" disabled={isSubmitting} type="submit">
               {isSubmitting ? 'Submitting...' : 'Submit'}

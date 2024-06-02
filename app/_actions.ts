@@ -46,18 +46,18 @@ export async function sendEmail(data: ContactFormInputs) {
     const result = ContactFormSchema.safeParse(data);
 
     if (result.success) {
-        const { name, surname, email, phone, date, time, message } = result.data;
+        const { name, surname, email, phone, date, time, message,landingPageURL } = result.data;
         try {
             const roomEmail = await getEmailFromSanity();  
             const activityName = await getNameFromSanity();  
-            console.log(roomEmail, activityName);
+            // console.log(roomEmail, activityName);
             const data = await resend.emails.send({
                 from: 'RoomFlow<onboarding@resend.dev>',
                 to: [roomEmail], 
                 cc: ['jimmyjazzz@icloud.com'],
                 subject: [activityName] + ' enquiry from RoomFlow',
                 text: `Name: ${name}\nSurname: ${surname}\nEmail: ${email}\nPhone: ${phone}\nTime: ${time}\nDate: ${date}\nMessage: ${message}`,
-                react: ContactFormEmail({ name, surname, email, phone, time, date, message})
+                react: ContactFormEmail({ name, surname, email, phone, time, date, message, landingPageURL})
             });
             return { success: true, data };
         } catch (error) {

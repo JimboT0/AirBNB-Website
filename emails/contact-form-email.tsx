@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 import { client } from "@/sanity/lib/client"
 import { product } from "@/sanity/schemas/product-schema"
 import { groq } from "next-sanity"
 import { Product } from "use-shopping-cart/core"
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 interface ContactFormEmailProps {
   name: string
   surname: string
@@ -11,6 +19,10 @@ interface ContactFormEmailProps {
   time: string 
   date: string 
   message: string
+<<<<<<< HEAD
+  landingPageURL: string
+=======
+>>>>>>> main
 }
 
 const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
@@ -21,6 +33,10 @@ const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
   time,
   date,
   message,
+<<<<<<< HEAD
+  landingPageURL
+=======
+>>>>>>> main
   
 }, ) => {
 
@@ -50,6 +66,11 @@ const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
         <h4 style={{ fontSize: '1.125rem', fontWeight: 'bold' }}>Message:</h4>
         <p>{message}</p>
       </div>
+<<<<<<< HEAD
+      <p>Customer enquired from {landingPageURL}</p>
+
+=======
+>>>>>>> main
     </div>
 )
 }
