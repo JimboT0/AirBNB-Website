@@ -21,11 +21,7 @@ export async function seedSanityData() {
   })
   await transaction.commit()
   await seedSanityImages()
-<<<<<<< HEAD
   // console.log("Sanity data seeded")
-=======
-  console.log("Sanity data seeded")
->>>>>>> main
 }
 
 async function seedSanityImages() {
