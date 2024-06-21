@@ -18,3 +18,4 @@ const CaptureLandingPageURL = () => {
 };
 
 export default CaptureLandingPageURL;
+

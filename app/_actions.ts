@@ -50,7 +50,7 @@ export async function sendEmail(data: ContactFormInputs) {
         try {
             const roomEmail = await getEmailFromSanity();  
             const activityName = await getNameFromSanity();  
-            // console.log(roomEmail, activityName);
+            
             const data = await resend.emails.send({
                 from: 'RoomFlow<onboarding@resend.dev>',
                 to: [roomEmail], 

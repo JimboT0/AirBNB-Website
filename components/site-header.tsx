@@ -44,9 +44,9 @@ export function SiteHeader() {
             {/* <p>QFlow</p> */}
           </div>
         </div>
-        {pathname.startsWith('/shop') || pathname.startsWith('/blog') ? (
+        {pathname.startsWith('/stopshop') || pathname.startsWith('/stopblog') ? (
           <div className="order-1 md:order-2">
-            <form onSubmit={pathname.startsWith('/shop') ? onSubmit : onBlogSubmit} className="hidden items-center lg:inline-flex">
+            <form onSubmit={pathname.startsWith('/shop') ? onSubmit : onBlogSubmit} className=" items-center lg:inline-flex">
               <Input
                 id="search"
                 name="search"
@@ -65,11 +65,8 @@ export function SiteHeader() {
         )}
 
 
-        <div className="flex items-center space-x-1 order-3">
-          <Link href="/cart">
-          </Link>
+        <div className="flex items-center space-x-1 order-3 pr-2">
           <ThemeToggle />
-
         </div>
       </div>
     </header>
