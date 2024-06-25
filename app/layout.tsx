@@ -10,6 +10,8 @@ import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { product } from "@/sanity/schemas/product-schema"
 import CaptureLandingPageURL from "@/components/captureLandingPageURL"
+import Analytics from '@/components/analytics';
+
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -38,6 +40,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Providers>
           <CaptureLandingPageURL />
             <div className="relative flex min-h-screen flex-col ">
+              <Analytics />
+              
               <SiteHeader />
               <SiteBlob />
               <div className="flex-1">{children}</div>

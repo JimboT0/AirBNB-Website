@@ -23,11 +23,18 @@ export default function hero() {
                                     </div>
                                     <div className="flex flex-col gap-2 min-[400px]:flex-row">
                                         <Link
-                                            href="#"
-                                            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                                            href="/activities"
+                                            className="inline-flex h-10 items-center justify-center rounded-md bg-gray-800 dark:bg-white px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                                             prefetch={false}
                                         >
                                             Start Booking
+                                        </Link>
+                                        <Link
+                                            href="/shop"
+                                            className="inline-flex h-10 items-center justify-center rounded-md bg-gray-400 dark:bg-gray-700 px-8 text-sm font-medium text-primary-background shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                                            prefetch={false}
+                                        >
+                                            Shopping
                                         </Link>
                                     </div>
                                 </div>

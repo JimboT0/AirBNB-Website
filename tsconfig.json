@@ -25,6 +25,6 @@
     "strictNullChecks": true,
     "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/hooks/useContactForm.tsx", "app/api/send-mail.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/hooks/useContactForm.tsx", "app/api/send-mail.js", "components/booking.jsx"],
   "exclude": ["node_modules"]
 }

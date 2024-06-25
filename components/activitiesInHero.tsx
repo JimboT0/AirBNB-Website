@@ -29,7 +29,7 @@ export default function activitiesInHero() {
                     className="rounded-t-xl object-cover w-full aspect-[3/2]"
                 />
                 <div className="p-4 space-y-2">
-                    <h3 className="text-xl font-semibold">Skydiving</h3>
+                    <h3 className="text-xl font-semibold">Adventure</h3>
                     <p className="text-muted-foreground">
                         Experience the thrill of free-falling from thousands of feet in the air.
                     </p>
@@ -51,7 +51,7 @@ export default function activitiesInHero() {
                     className="rounded-t-xl object-cover w-full aspect-[3/2]"
                 />
                 <div className="p-4 space-y-2">
-                    <h3 className="text-xl font-semibold">Cooking Class</h3>
+                    <h3 className="text-xl font-semibold">Dining</h3>
                     <p className="text-muted-foreground">Learn to cook delicious meals from expert chefs.</p>
                     <Link
                         href="#"
@@ -71,7 +71,7 @@ export default function activitiesInHero() {
                     className="rounded-t-xl object-cover w-full aspect-[3/2]"
                 />
                 <div className="p-4 space-y-2">
-                    <h3 className="text-xl font-semibold">Hiking Tour</h3>
+                    <h3 className="text-xl font-semibold">Accomodation</h3>
                     <p className="text-muted-foreground">Explore stunning natural landscapes on a guided hike.</p>
                     <Link
                         href="#"
@@ -91,7 +91,7 @@ export default function activitiesInHero() {
                     className="rounded-t-xl object-cover w-full aspect-[3/2]"
                 />
                 <div className="p-4 space-y-2">
-                    <h3 className="text-xl font-semibold">Kayaking</h3>
+                    <h3 className="text-xl font-semibold">Travel</h3>
                     <p className="text-muted-foreground">Paddle through serene waterways and explore hidden coves.</p>
                     <Link
                         href="#"
