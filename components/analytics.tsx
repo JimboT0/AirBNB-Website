@@ -3,7 +3,7 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { initGA, logPageView } from '../lib/ga';
+import { initGA, logPageView, logEvent } from '../lib/ga';
 
 const Analytics = () => {
   const pathname = usePathname();
@@ -16,6 +16,15 @@ const Analytics = () => {
   useEffect(() => {
     logPageView();
   }, [pathname]);
+
+
+
+  const handleButtonClick = (buttonLabel: any) => {
+    logEvent('Button Click', `Clicked ${buttonLabel}`, buttonLabel);
+  };
+
+
+  
 
   return null;
 };

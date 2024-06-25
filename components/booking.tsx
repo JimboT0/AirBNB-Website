@@ -11,21 +11,24 @@ import { sendEmail } from '@/app/_actions'
 import { toast } from 'sonner'
 import { useEffect, useState } from 'react';
 
+import { usePathname } from 'next/navigation';
+import { logEvent } from '../lib/ga';
+
+
 
 
 export type ContactFormInputs = z.infer<typeof ContactFormSchema>
 
+
+
 export default function BookingForm() {
   const [landingPageURL, setLandingPageURL] = useState(''); // Declare landingPageURL state variable
 
+
   useEffect(() => {
     const storedLandingPageURL = localStorage.getItem('landingPageURL');
-    console.log(`Stored Landing Page URL: ${storedLandingPageURL}`)
-    setLandingPageURL(storedLandingPageURL || ''); // Set landingPageURL state variable
-    console.log(`Updated Landing Page URL: ${landingPageURL}`)
+    setLandingPageURL(storedLandingPageURL || '');
   }, []);
-
-  console.log(`${landingPageURL} is being stored here!`);
 
   const {
     register,
@@ -42,20 +45,41 @@ export default function BookingForm() {
   }, [landingPageURL, setValue]);
 
   const processForm: SubmitHandler<ContactFormInputs> = async data => {
-    const result = await sendEmail(data)
-
+    const result = await sendEmail(data);
 
     if (result?.success) {
-      console.log({ data: result.data })
-      toast.success('Email sent!')
-      reset()
-      return
+      toast.success('Email sent!');
+      reset();
+      console.log(`Customer from ${landingPageURL} has submitted the form.`);
+      return;
     }
 
-    // toast error
-    console.log(result?.error)
-    toast.error('Something went wrong!')
-  }
+    toast.error('Something went wrong!');
+  };
+
+
+  const handleButtonClick = (buttonLabel: string, pathname: string) => {
+    const action = `Click ${buttonLabel}`;
+    const label = `click_${buttonLabel.toLowerCase()} on ${pathname}`;
+
+    const journey = {
+      landingPageURL,
+      pathname: pathname,
+      timestamp: new Date().toISOString()  // Add a timestamp for when the action occurred
+    };
+  
+    // Retrieve existing journeys from localStorage
+    const existingJourneys = JSON.parse(localStorage.getItem('customerJourneys') || '[]');
+  
+    // Add the new journey to the list
+    const updatedJourneys = [...existingJourneys, journey];
+  
+    // Store updated journeys back in localStorage
+    localStorage.setItem('customerJourneys', JSON.stringify(updatedJourneys));
+    
+    console.log(`Customer from ${landingPageURL} has clicked ${pathname}`);
+  };
+  
 
 
   return (
@@ -130,7 +154,7 @@ export default function BookingForm() {
           <input type="hidden" {...register('landingPageURL', { value: landingPageURL })} />
 
           <div className="p-3">
-            <button className="w-full border rounded-lg bg-orange-400 p-2" disabled={isSubmitting} type="submit">
+            <button className="w-full border rounded-lg bg-orange-400 p-2" disabled={isSubmitting} type="submit" onClick={() => handleButtonClick('Submit', window.location.pathname)}>
               {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
           </div>

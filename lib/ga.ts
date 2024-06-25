@@ -15,7 +15,12 @@ export const logEvent = (category = '', action = '', label = '') => {
   if (category && action) {
     ReactGA.event({ category, action, label });
   }
+  
 };
+
+
+
+
 
 
 
