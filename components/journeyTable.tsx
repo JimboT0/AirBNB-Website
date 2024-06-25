@@ -1,6 +1,10 @@
-'use client'
+// src/components/JourneyTable.js
+
+'use client';
 
 import React, { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../lib/firebase';
 
 type CustomerJourney = {
   landingPageURL: string;
@@ -12,17 +16,18 @@ const JourneyTable = () => {
   const [customerJourneys, setCustomerJourneys] = useState<CustomerJourney[]>([]);
 
   useEffect(() => {
-    // Function to fetch customer journeys from localStorage
-    const fetchJourneys = () => {
-      const storedJourneys = localStorage.getItem('customerJourneys');
-      if (storedJourneys) {
-        const parsedJourneys: CustomerJourney[] = JSON.parse(storedJourneys);
-        setCustomerJourneys(parsedJourneys);
+    const fetchJourneys = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'customerJourneys'));
+        const journeys = querySnapshot.docs.map(doc => doc.data() as CustomerJourney);
+        setCustomerJourneys(journeys);
+      } catch (error) {
+        console.error('Error fetching customer journeys:', error);
       }
     };
 
-    fetchJourneys(); // Invoke the function to fetch journeys when the component mounts
-  }, []); // Empty dependency array ensures this effect runs only once
+    fetchJourneys();
+  }, []);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -48,7 +53,6 @@ const JourneyTable = () => {
         </table>
       </div>
     </div>
-
   );
 };
 

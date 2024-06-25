@@ -14,6 +14,9 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { logEvent } from '../lib/ga';
 
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../lib/firebase';
+
 
 
 
@@ -58,7 +61,7 @@ export default function BookingForm() {
   };
 
 
-  const handleButtonClick = (buttonLabel: string, pathname: string) => {
+  const handleButtonClick = async (buttonLabel: string, pathname: string) => {
     const action = `Click ${buttonLabel}`;
     const label = `click_${buttonLabel.toLowerCase()} on ${pathname}`;
 
@@ -67,19 +70,27 @@ export default function BookingForm() {
       pathname: pathname,
       timestamp: new Date().toISOString()  // Add a timestamp for when the action occurred
     };
-  
+
+    try {
+      await addDoc(collection(db, 'customerJourneys'), journey);
+      console.log(`Customer from ${landingPageURL} has clicked ${buttonLabel} on ${pathname}`);
+    } catch (error) {
+      console.error('Error saving journey:', error);
+    }
+
     // Retrieve existing journeys from localStorage
     const existingJourneys = JSON.parse(localStorage.getItem('customerJourneys') || '[]');
-  
+
     // Add the new journey to the list
     const updatedJourneys = [...existingJourneys, journey];
-  
+
     // Store updated journeys back in localStorage
     localStorage.setItem('customerJourneys', JSON.stringify(updatedJourneys));
-    
+
+
     console.log(`Customer from ${landingPageURL} has clicked ${pathname}`);
   };
-  
+
 
 
   return (
