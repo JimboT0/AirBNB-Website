@@ -7,6 +7,7 @@ import { ProductInfo } from "@/components/product-info"
 import { BlogPostInfo } from "@/components/blog-post-info"
 import { BlogPostGallery } from "@/components/blog-post-gallery"
 import Booking from "@/components/booking"
+import { Button } from "@/components/ui/button"
 
 interface Props {
   params: {
@@ -44,6 +45,7 @@ export default async function Page({ params }: Props) {
           <BlogPostGallery post={post}/>
           {/* Product info */}
           <BlogPostInfo post={post}/>
+          
         </div>
       </div>
     </main>

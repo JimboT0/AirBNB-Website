@@ -25,26 +25,19 @@ export type ContactFormInputs = z.infer<typeof ContactFormSchema>
 
 
 export default function BookingForm() {
-  const [landingPageURL, setLandingPageURL] = useState(''); // Declare landingPageURL state variable
-
+  const [landingPageURL, setLandingPageURL] = useState('');
 
   useEffect(() => {
     const storedLandingPageURL = localStorage.getItem('landingPageURL');
     setLandingPageURL(storedLandingPageURL || '');
   }, []);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-    setValue
-  } = useForm<ContactFormInputs>({
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting }, setValue } = useForm<ContactFormInputs>({
     resolver: zodResolver(ContactFormSchema)
-  })
+  });
 
   useEffect(() => {
-    setValue('landingPageURL', landingPageURL); // Set the landingPageURL value in the form
+    setValue('landingPageURL', landingPageURL);
   }, [landingPageURL, setValue]);
 
   const processForm: SubmitHandler<ContactFormInputs> = async data => {
@@ -56,39 +49,30 @@ export default function BookingForm() {
       console.log(`Customer from ${landingPageURL} has submitted the form.`);
       return;
     }
-
     toast.error('Something went wrong!');
   };
+
 
 
   const handleButtonClick = async (buttonLabel: string, pathname: string) => {
     const action = `Click ${buttonLabel}`;
     const label = `click_${buttonLabel.toLowerCase()} on ${pathname}`;
-
+    logEvent('Button', action, label);
+    console.log(`Customer from ${landingPageURL} has clicked ${buttonLabel} on ${pathname}`);
+    
     const journey = {
       landingPageURL,
       pathname: pathname,
-      timestamp: new Date().toISOString()  // Add a timestamp for when the action occurred
+      timestamp: new Date().toISOString(),
     };
 
+  
     try {
       await addDoc(collection(db, 'customerJourneys'), journey);
-      console.log(`Customer from ${landingPageURL} has clicked ${buttonLabel} on ${pathname}`);
+      // Successfully logged journey to Firestore
     } catch (error) {
       console.error('Error saving journey:', error);
     }
-
-    // Retrieve existing journeys from localStorage
-    const existingJourneys = JSON.parse(localStorage.getItem('customerJourneys') || '[]');
-
-    // Add the new journey to the list
-    const updatedJourneys = [...existingJourneys, journey];
-
-    // Store updated journeys back in localStorage
-    localStorage.setItem('customerJourneys', JSON.stringify(updatedJourneys));
-
-
-    console.log(`Customer from ${landingPageURL} has clicked ${pathname}`);
   };
 
 

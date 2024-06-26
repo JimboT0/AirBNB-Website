@@ -5,27 +5,27 @@ import { useEffect } from 'react';
 
 const CaptureLandingPageURL = () => {
   useEffect(() => {
+    // Function to handle beforeunload event
     const handleBeforeUnload = () => {
-      const storedLandingPageURL = localStorage.getItem('landingPageURL');
-      if (storedLandingPageURL) {
-        localStorage.removeItem('landingPageURL');
-        console.log('Landing Page URL removed from local storage:', storedLandingPageURL);
-      }
+      // Do nothing on beforeunload to retain the landingPageURL
     };
 
+    // Add event listener for beforeunload
     window.addEventListener('beforeunload', handleBeforeUnload);
 
+    // Clean up event listener
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, []);
 
   useEffect(() => {
+    // Retrieve stored landing page URL from local storage
     const storedLandingPageURL = localStorage.getItem('landingPageURL');
     const currentURL = window.location.href;
 
-    // Only update if the stored URL is different from the current URL
-    if (!storedLandingPageURL || storedLandingPageURL !== currentURL) {
+    // Only set if there is no stored URL
+    if (!storedLandingPageURL) {
       localStorage.setItem('landingPageURL', currentURL);
       console.log('Landing Page URL set in local storage:', currentURL);
     } else {
